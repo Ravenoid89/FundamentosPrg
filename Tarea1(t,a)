@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Tarea1_t_a_
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine("Ingrese t");
+            double t = double.Parse(Console.ReadLine());
+            Console.WriteLine("Ingrese a");
+            double aGrados = double.Parse(Console.ReadLine());
+
+            double a = aGrados * (Math.PI / 180.0);
+
+            double c = (Math.PI / 2) - a;
+            double z = t * Math.Cos(a);
+            double y = t * Math.Sin(a);
+
+            Console.WriteLine("c: " + c);
+            Console.WriteLine("z: " + z);
+            Console.WriteLine("y: " + y);
+
+        }
+    }
+}
