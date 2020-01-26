@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Tarea1
+{
+    class Program
+    {
+        static void Main()
+        {
+            //Ingreso de datos
+            Console.WriteLine("Ingrese y");
+            double y = double.Parse(Console.ReadLine());
+            Console.WriteLine("Ingrese z");
+            double z = double.Parse(Console.ReadLine());
+
+            //Calculo de valores
+
+            double t = Math.Sqrt(Math.Pow(z, 2) + Math.Pow(y, 2));
+            double cGrados = Math.Atan(z / y);
+            double aGrados = Math.Atan(y / z);
+
+            //Conversión a ángulos
+            double c = cGrados * (180.0 / Math.PI);
+            double a = aGrados * (180.0 / Math.PI);
+
+            //Imprimir valores
+
+            Console.WriteLine("c: " + c);
+            Console.WriteLine("a: " + a);
+            Console.WriteLine("t: " + t);
+
+
+
+
+        }
+    }
+
+   
+}
