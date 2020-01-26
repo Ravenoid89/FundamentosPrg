@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Tarea1_c_z_
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Ingrese c");
+            double cGrados = double.Parse(Console.ReadLine());
+            Console.WriteLine("Ingrese z");
+            double z = double.Parse(Console.ReadLine());
+
+            double c = cGrados * (Math.PI / 180.0);
+
+            double y = z * Math.Cos(c);
+            double t = z * Math.Acos(c);
+            double a = 90 - cGrados;
+
+            Console.WriteLine("y; " + y);
+            Console.WriteLine("t; " + t);
+            Console.WriteLine("a; " + a);
+        }
+    }
+}
