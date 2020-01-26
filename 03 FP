@@ -1,0 +1,64 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Tarea1
+{
+    class Program
+    {
+        static void Main()
+        {
+            //Ingreso de datos
+
+            Console.WriteLine("Ingrese b");
+            double bGrados = double.Parse(Console.ReadLine());
+            Console.WriteLine("Ingrese z");
+            double z = double.Parse(Console.ReadLine());
+            Console.WriteLine("Ingrese y");
+            double y = double.Parse(Console.ReadLine());
+            Console.WriteLine("Ingrese d");
+            double dGrados = double.Parse(Console.ReadLine());
+            Console.WriteLine("Ingrese w");
+            double w = double.Parse(Console.ReadLine());
+            Console.WriteLine("Ingrese x");
+            double x = double.Parse(Console.ReadLine());
+            Console.WriteLine("Ingrese t");
+            double t = double.Parse(Console.ReadLine());
+            Console.WriteLine("Ingrese c");
+            double cGrados = double.Parse(Console.ReadLine());
+
+            //calculo de ángulo a
+            double aGrados = Math.Atan(y / z);
+
+            //Conversión de los ángulos a radianes
+            double c = cGrados * (Math.PI / 180.0);
+            double a = aGrados * (Math.PI / 180.0);
+            double b = bGrados * (Math.PI / 180.0);
+            double d = dGrados * (Math.PI / 180.0);
+
+            //Calculo de los valores 
+            double zcalculo = t * Math.Sin(c);
+            double ycalculo = t * Math.Cos(c);
+            double cateto1 = Math.Pow(w, 2);
+            double cateto2 = Math.Pow(zcalculo, 2);
+            double resultadocatetos = Math.Sqrt(cateto1 + cateto2);
+
+            //Calculo de resultado
+            double yresultado = w * (Math.Cos(d)) - x;
+            double zresultado = y * (Math.Tan(d + b));
+            double xresultado = z * (Math.Tan(a + b)) - y;
+            double resultadox = resultadocatetos + ycalculo;
+
+            //Imprimir resultado
+            Console.WriteLine("x: " + xresultado);
+            Console.WriteLine("z: " + zresultado);
+            Console.WriteLine("y: " + yresultado);
+            Console.WriteLine("x: " + resultadox);
+            
+
+        
+        }
+    }
+}
