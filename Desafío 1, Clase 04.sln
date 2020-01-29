@@ -1,25 +1,32 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29709.97
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desafío 1, Clase 04", "Desafío 1, Clase 04\Desafío 1, Clase 04.csproj", "{86C002FC-772F-4756-8439-9FA30B106E0D}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{86C002FC-772F-4756-8439-9FA30B106E0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{86C002FC-772F-4756-8439-9FA30B106E0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{86C002FC-772F-4756-8439-9FA30B106E0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{86C002FC-772F-4756-8439-9FA30B106E0D}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {32C3E2B2-87CA-4E13-B49C-233DA7CEB7B2}
-	EndGlobalSection
-EndGlobal
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Desafío_1__Clase_04
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Ingrese su numero de salarios minimos mensual legal vigentes");
+            int smmlv = int.Parse(Console.ReadLine());
+
+            if (smmlv < 2)
+            {
+                Console.WriteLine("Tarifa A");
+            }
+            else if(2 <= smmlv && smmlv <= 4)
+                
+            {
+                Console.WriteLine("Tarifa B");
+            }
+            else
+            {
+                Console.WriteLine("Tarifa C");
+            }
+
+        }
+    }
+}
