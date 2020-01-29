@@ -1,25 +1,36 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29709.97
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desafío 2, Clase 04", "Desafío 2, Clase 04\Desafío 2, Clase 04.csproj", "{2774338F-F7AC-4315-9949-359D2634AFBC}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2774338F-F7AC-4315-9949-359D2634AFBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2774338F-F7AC-4315-9949-359D2634AFBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2774338F-F7AC-4315-9949-359D2634AFBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2774338F-F7AC-4315-9949-359D2634AFBC}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3D430F27-5566-4407-B37D-684624F45B5E}
-	EndGlobalSection
-EndGlobal
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Desafío_2__Clase_04
+
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Ingrese su numero de salarios minimos mensual legal vigentes");
+            int smmlv = int.Parse(Console.ReadLine());
+
+            if (smmlv < 2)
+            {
+                Console.WriteLine("Tarifa A");
+                Console.WriteLine("Cuota Moderadora: $3.400");
+            }
+            else if (2 <= smmlv && smmlv <= 5)
+
+            {
+                Console.WriteLine("Tarifa B");
+                Console.WriteLine("Cuota moderadora: $13.500");
+            }
+            else
+            {
+                Console.WriteLine("Tarifa C");
+                Console.WriteLine("Cuota moderadora: $35.600");
+            }
+
+        }
+    }
+}
