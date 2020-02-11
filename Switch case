@@ -1,0 +1,85 @@
+namespace Switch_case
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine("Igrese su salario mensual: ");
+            double salariomensual = double.Parse(Console.ReadLine());
+            Console.WriteLine("Ingrese 1 si su tipo de contrato es independiente, de lo contrario(dependiente), ingrese 2: ");
+            int tipodesalario = int.Parse(Console.ReadLine());
+            
+            double basedecot = salariomensual * 0.4;
+            double arl = 0;
+            double pension = 0;
+            double eps = 0;
+            double prima = 0;
+
+            if (basedecot < 878000)
+            {
+                basedecot = 878000;
+            }
+
+            switch (tipodesalario)
+            {
+                case 1:
+                    pension = 0.16 * basedecot;
+                    eps = 0.125 * basedecot;
+                    prima = 0;
+                    Console.WriteLine("Igrese su arl de 1-5: ");
+                    int arlpregunta = int.Parse(Console.ReadLine());
+                    switch (arlpregunta)
+                    {
+                        case 1:
+                            arl = 0.00522 * basedecot;
+                                break;
+                        case 2:
+                            arl = 0.01044 * basedecot;
+                            break;
+                        case 3:
+                            arl = 0.02436 * basedecot;
+                            break;
+                        case 4:
+                            arl = 0.0435 * basedecot;
+                            break;
+                        case 5:
+                            arl = 0.0696 * basedecot;
+
+
+                            break;
+
+
+
+
+                    }
+
+                    double salarioreal1 = salariomensual - (arl + pension + eps);
+                    Console.WriteLine("Su salario mensual real es: " + salarioreal1);
+                    double salarioanualreal2 = salarioreal1 * 12 + prima;
+                    Console.WriteLine("Su salario anual real: " + salarioanualreal2);
+
+                    break;
+                case 2:
+                    pension = 0.04 * basedecot;
+                    eps = 0.04 * basedecot;
+                    arl = 0;
+                    prima = salariomensual;
+
+                    double salarioreal = salariomensual - (arl + pension + eps);
+                    Console.WriteLine("Su salario mensual real es: " + salarioreal);
+                    double salarioanualreal = salarioreal * 12 + prima;
+                    Console.WriteLine("Su salario anual real: " + salarioanualreal);
+
+
+                    break;
+
+                
+
+            }
+           
+
+           
+
+        }
+    }
+}
