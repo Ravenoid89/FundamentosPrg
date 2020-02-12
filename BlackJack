@@ -1,0 +1,53 @@
+namespace Blackjack
+{
+    class Program
+    {
+        static void Main()
+        {
+            Random aleatorio = new Random();
+            int total = 0;
+            int carta = 0;
+            int contador = 0;
+            string continuar = "s";
+
+            while(continuar == "s" && total < 21)
+            {
+                while (contador < 2) {
+                    carta = aleatorio.Next(1, 11);
+                    Console.WriteLine("Carta: " + carta);
+                    total += carta;
+                    Console.WriteLine("Su puntaje es:" + total);
+                    contador += 1;
+                        }
+
+                Console.WriteLine("tomar una carta?");
+                continuar = Console.ReadLine();
+
+                if (contador == 2 && continuar == "s")
+                {
+                    carta = aleatorio.Next(1, 11);
+                    Console.WriteLine("Carta: " + carta);
+                    total += carta;
+                    Console.WriteLine("Su puntaje es: " + total);
+                    if (total > 21)
+                    {
+
+                        Console.WriteLine("Suerte a la proxima");
+                    }
+                    if (total == 21)
+                    {
+                        total = 21;
+                        Console.WriteLine("BLACKJACK!!!");
+                    }
+                   
+                }
+
+
+
+            }
+            Console.WriteLine("Su puntaje fue: " + total);
+            Console.WriteLine("Gracias por jugar");
+
+        }
+    }
+}
