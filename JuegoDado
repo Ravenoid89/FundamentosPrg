@@ -1,0 +1,80 @@
+namespace JuegoDado
+{
+    class Program
+    {
+        static void Main()
+        {
+            Random aleatorio = new Random();
+            int dado = 0; 
+            int total = 0;
+            string continuar = "s";
+            int contador = 0;
+            int dadocontador = 0;
+            int contadordoce = 0;
+
+            while (contador < 3 && continuar == "s")
+            {
+                dado = aleatorio.Next(1, 13);
+                Console.WriteLine("Dado: " + dado);
+                total += dado;
+                contador++;
+                    if (dado == 12)
+                {
+                    contadordoce++;
+                    Console.WriteLine("Desea continuar?");
+                    continuar = Console.ReadLine();
+                }
+                else if (dado == 10 && contadordoce == 1)
+                {
+                    Console.WriteLine("Ganaste de pura chepa mi pai");
+                    continuar = "n";
+                }
+                else
+                {
+                    Console.WriteLine("Desea continuar?");
+                    continuar = Console.ReadLine();
+                    contadordoce = 0;
+                }
+
+
+            }
+            while (continuar == "s")
+            {
+                dado = aleatorio.Next(1, 13);
+                Console.WriteLine("Dado: " + dado);
+                total += dado;
+                if (total >= 100)
+                {
+                    Console.WriteLine("Ganaste, Madre mia willy");
+                    continuar = "n";
+                }
+                else if ((dado % 2) == 1)
+                {
+                    Console.WriteLine("Perdiste. Terrible, compañero...");
+                    continuar = "n";
+                    total = 0;
+                }
+                else if (dado == 12)
+                {
+                    contadordoce++;
+                    Console.WriteLine("El puntaje que lleva es: " + total);
+                    Console.WriteLine("Desea continuar?");
+                    continuar = Console.ReadLine();
+                }
+                else if(dado == 10 && contadordoce == 1)
+                {
+                    Console.WriteLine("Ganaste de pura chepa mi pai");
+                    continuar = "n";
+                }
+                else
+                {
+                    Console.WriteLine("El puntaje que lleva es: " + total);
+                    Console.WriteLine("Desea continuar?");
+                    continuar = Console.ReadLine();
+                    contadordoce = 0;
+                }
+            }
+            Console.WriteLine("Su puntaje final es: " + total);
+        }
+    }
+}
