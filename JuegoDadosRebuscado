@@ -1,0 +1,98 @@
+namespace JuegodeDadosRebuscado
+{
+    class Program
+    {
+        static void Main()
+        {
+            Random aleatorio = new Random();
+            int dado = 0, dado1 = 0, total = 0, contador = 0, vidas = 3,suma = 0,contador1 = 0;
+            string respuesta = "s";
+            Console.WriteLine("Comienza el juego");
+
+            while(respuesta == "s" && vidas != 0)
+            {
+                contador++;
+                contador1++;
+                dado = aleatorio.Next(1, 7);
+                Console.WriteLine("Dado: " + dado);
+                if (contador == 4)
+                {
+                    contador = 0;
+                    dado1 = aleatorio.Next(1, 7);
+                    Console.WriteLine("Dado2: " + dado1);
+                    suma = dado + dado1;
+                    total += suma;
+                    Console.WriteLine("Lleva un puntaje de: " + total);
+                    if (total >= 100)
+                    {
+                        Console.WriteLine("Ganaste");
+                        respuesta = "n";
+                    }
+                    if (dado == dado1)
+                    {
+                        vidas++;
+                        contador = 0;
+                        Console.WriteLine("Ganaste una vida");
+                        Console.WriteLine("Desea continuar? ");
+                        respuesta = Console.ReadLine();
+                    }
+                    if (contador1 == 3)
+                    {
+                        vidas -= 1;
+                        Console.WriteLine("Perdiste una vida");
+                        contador1 = 0;
+                        if (vidas == 0)
+                        {
+                            Console.WriteLine("Perdiste!!");
+                            respuesta = "n";
+                        }
+                        else
+                        {
+                            Console.WriteLine("Desea continuar? ");
+                            respuesta = Console.ReadLine();
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Desea continuar? ");
+                        respuesta = Console.ReadLine();
+                    }
+                }
+
+                else
+                {
+                    total += dado;
+                    Console.WriteLine("Lleva un puntaje de: " + total);
+                    if (total >= 100)
+                    {
+                        Console.WriteLine("Ganaste");
+                        respuesta = "n";
+                    }
+                    if (contador1 == 3)
+                    {
+                        vidas -= 1;
+                        Console.WriteLine("Perdiste una vida");
+                        contador1 = 0;
+                        if (vidas == 0)
+                        {
+                            Console.WriteLine("Perdiste!!");
+                            respuesta = "n";
+                        }
+                        else
+                        {
+                            Console.WriteLine("Desea continuar? ");
+                            respuesta = Console.ReadLine();
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Desea continuar? ");
+                        respuesta = Console.ReadLine();
+                    }
+
+                }
+
+            }
+        }
+    }
+}
