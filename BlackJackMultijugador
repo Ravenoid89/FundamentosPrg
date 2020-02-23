@@ -1,0 +1,80 @@
+class Program
+    {
+        static void Main()
+        {
+            Random aleatorio = new Random();
+            int total = 0, carta = 0, contador = 0, maximo = 0, jugadormaximo = 0;
+            int jugador = 1;
+            string continuar = "n";
+            Console.WriteLine("Ingrese el numero de jugadores(2-7)");
+            int n = int.Parse(Console.ReadLine());
+            while(n < 2 || n > 7)
+            {
+                Console.WriteLine("Respuesta invalida. Por favor ingrese el numero de jugadores(2-7)");
+                n = int.Parse(Console.ReadLine());
+            }
+            while (continuar == "n" && jugador <= n)
+            {
+                Console.WriteLine("Bienvenido jugador: " + jugador);
+                carta = aleatorio.Next(1, 11);
+                Console.WriteLine("Carta: " + carta);
+                total += carta;
+                carta = aleatorio.Next(1, 11);
+                Console.WriteLine("Carta2: " + carta);
+                total += carta;
+                Console.WriteLine("Su puntaje es: " + total);
+                
+                Console.WriteLine("tomar una carta?(s/n)");
+                continuar = Console.ReadLine();
+
+                if (continuar != "s" && continuar != "n")
+                {
+                    Console.WriteLine("Responda s/n");
+                    continuar = Console.ReadLine();
+                }
+
+                while (continuar == "s")
+                {
+                    carta = aleatorio.Next(1, 11);
+                    Console.WriteLine("Carta: " + carta);
+                    total += carta;
+                    Console.WriteLine("Su puntaje es: " + total);
+                    if (total > 21)
+                    {
+
+                        Console.WriteLine("Suerte a la proxima");
+                        continuar = "n";
+                    }
+                    if (total == 21)
+                    {
+                        total = 21;
+                        Console.WriteLine("BLACKJACK!!!");
+                        break;
+                    }
+                    if (total != 21 && total < 21)
+                    {
+                        Console.WriteLine("tomar una carta?(s/n)");
+                        continuar = Console.ReadLine();
+                        if (continuar != "s" && continuar != "n")
+                        {
+                            Console.WriteLine("Responda s/n");
+                            continuar = Console.ReadLine();
+                        }
+
+                    }
+
+                }
+                if (total > maximo && total <= 21)
+                {
+                    maximo = total;
+                    jugadormaximo = jugador;
+                }
+                jugador++;
+                total = 0;
+
+            }
+
+            Console.WriteLine("El ganador es el jugador: " + jugadormaximo + " con un puntaje de: " + maximo);
+
+        }
+    }
