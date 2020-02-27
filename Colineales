@@ -1,0 +1,31 @@
+  class Program
+    {
+        static void Main()
+        {
+            double[] cordsX = { 0, 2, 3, 7 };
+            double[] cordsY = { 0, 1, 5, 6 };
+            double maximo = 0;
+            string nmaximo = " ";
+            double dAB = Math.Sqrt(Math.Pow(cordsX[0] - cordsX[1], 2) + Math.Pow(cordsY[0] - cordsY[1], 2));
+            double dBC = Math.Sqrt(Math.Pow(cordsX[1] - cordsX[2], 2) + Math.Pow(cordsY[1] - cordsY[2], 2));
+            double dCD = Math.Sqrt(Math.Pow(cordsX[2] - cordsX[3], 2) + Math.Pow(cordsY[2] - cordsY[3], 2));
+            double dAD = Math.Sqrt(Math.Pow(cordsX[0] - cordsX[3], 2) + Math.Pow(cordsY[0] - cordsY[3], 2));
+            double suma = dAB + dBC + dCD;
+            double[] distance = { dAB, dBC, dCD, dAD };
+            if (suma == dAD)
+            {
+                Console.WriteLine("Las coordenadas son colineales");
+            }
+            else
+            {
+                Console.WriteLine("Las coordenadas no son colineales");
+            }
+            if (dAB > maximo) { maximo = dAB; nmaximo = "dAB"; }
+                if (dBC > maximo) { maximo = dBC; nmaximo = "dBC"; }
+                    if (dCD > maximo) { maximo = dCD; nmaximo = "dCD"; }
+                        if (dAD > maximo) { maximo = dAD; nmaximo = "dAD"; }
+
+            Console.WriteLine("La mayor distancia es: " + nmaximo + " " + maximo);
+
+        }
+    }
