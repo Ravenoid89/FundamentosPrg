@@ -1,0 +1,80 @@
+    class Program
+    {
+        static void Main()
+        {
+            Random aleatorio = new Random();
+            int total = 0;
+            int carta = 0;
+            int max = 0;
+            int max2 = 0;
+            string continuar = "s";
+            Console.WriteLine("Ingrese el numero de jugadores");
+            int n = int.Parse(Console.ReadLine());
+            string nombre = " ";
+            string[] posicion = new string[n];
+            int[] puntaje = new int[n];
+            for (int i = 1;i <= n; i++)
+            {
+                continuar = "s";
+                total = 0;
+                Console.WriteLine("Bienvenido jugador. Ingrese su nombre");
+                nombre = Console.ReadLine();
+                Console.WriteLine("Que comience el juego: " + nombre);
+                while(continuar == "s")
+                {
+                    carta = aleatorio.Next(1, 11);
+                    Console.WriteLine("Carta: " + carta);
+                    total += carta;
+                    carta = aleatorio.Next(1, 11);
+                    Console.WriteLine("Carta: " + carta);
+                    total += carta;
+                    Console.WriteLine("Su puntaje es:" + total);
+                    Console.WriteLine("¿tomar una carta?(s/n)");
+                    continuar = Console.ReadLine();        
+                    while (continuar == "s")
+                    {
+                        carta = aleatorio.Next(1, 11);
+                        Console.WriteLine("Carta: " + carta);
+                        total += carta;
+                        if (total > 21)
+                        {
+                            Console.WriteLine("Suerte a la proxima");
+                            total = 0;
+                            continuar = "n";
+                        }
+                        if (total == 21)
+                        {
+                            total = 21;
+                            Console.WriteLine("BLACKJACK!!!");
+                            continuar = "n";
+                        }                       
+                        Console.WriteLine("Su puntaje es: " + total);
+                        Console.WriteLine("¿tomar una carta?(s/n)");
+                        continuar = Console.ReadLine();     
+                    }
+                    for (int j = 1; j < 100; j++) {
+                        if (total > max)
+                        {
+                            posicion[0] = nombre;
+                            puntaje[0] = total;
+                            max = total;
+                        }
+                        if(total < max)
+                        {
+                            if (total > max2)
+                            {
+                                max2 = total;
+                                posicion[1] = nombre;
+                                puntaje[1] = max2;
+                            }
+                            
+                        }
+                    }
+                    
+                }
+            }
+            Console.WriteLine("El primer lugar es para: " + posicion[0] + " con " + puntaje[0] + " puntos");
+            Console.WriteLine("El primer lugar es para: " + posicion[1] + " con " + puntaje[1] + " puntos");
+            Console.WriteLine("Gracias por jugar");
+        }
+    }
