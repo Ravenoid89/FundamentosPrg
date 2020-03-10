@@ -1,0 +1,26 @@
+    class Program
+    {
+        static void Main(string[] args) 
+        {
+            string frase = "madre mia willy madre";
+            frase = frase.ToUpper();
+            string palabra = "madre";
+            palabra = palabra.ToUpper();
+            int contador = 0;
+
+            for(int i = 0;i < frase.Length - palabra.Length + 1; i++)
+            {
+                string palabraFormada = "";
+                for(int j = 0; j < palabra.Length; j++)
+                {
+                    palabraFormada += frase[i + j];
+                }
+                if(palabraFormada == palabra)
+                {
+                    contador++;
+                    Console.WriteLine("Palabra encontrada: " + palabraFormada);
+                }
+            }
+            Console.WriteLine("La palabra se encuentra: " + contador + " veces");
+        }   
+    }
