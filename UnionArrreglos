@@ -1,0 +1,49 @@
+class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] A = { 3, 2, 14, 15, 9, 8, 0, 1 };
+            int[] B = { 3, 5, 6, 7, 8, 9, 15, 11, 12, 19, 10 };
+            int[] todos = new int[A.Length + B.Length];
+            int temp = 0;
+
+            for(int i = 0; i < A.Length; i++)
+            {
+                todos[i] = A[i];
+            }
+            for (int i = 0; i < B.Length; i++)
+            {
+                todos[i + A.Length] = B[i];
+            }
+            for (int i = 0; i < todos.Length; i++)
+            {
+                for (int j = 0; j < todos.Length - 1; j++)
+                {
+                    temp = todos[i];
+                    todos[i] = todos[i + 1];
+                    todos[i + 1] = temp;
+                }
+            }
+            int[] noRepetidos = new int[todos.Length];
+            int contador = 0;
+            for (int i = 0; i < todos.Length + 1; i++)
+            {
+                if(todos[i] != todos[i + 1])
+                {
+                    noRepetidos[contador] = todos[i];
+                    contador++;
+                }
+            }
+            int[] union = new int[contador];
+            for (int j = 0; j < union.Length; j++)
+            {
+                union[i] = noRepetidos[i];
+            }
+            for (int j = 0; j < union.Length; j++)
+            {
+                Console.WriteLine(union[1] + ", ");
+            }
+
+
+        }
+    }
